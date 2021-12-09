@@ -11,12 +11,12 @@
 	</select>
 	
 	<!-- parameterType이 요청값을 넘기기 위해서 필요하다 select는 없어도 상관없다. -->
-	<insert id="boardInsert" parameterType="co.won.prj.board.service.BoardVO">
+ 	<insert id="boardInsert" parameterType="co.won.prj.board.service.BoardVO">
 		<selectKey keyProperty="no" resultType="int" order="BEFORE">
 			SELECT MAX(NO) + 1 AS NO FROM BOARD
 		</selectKey>
-		INSERT INTO BOARD(NO, WRITER, WDATE, TITLE, SUBJECT, HIT)
-		VALUES(#{no}, #{writer), #{wdate}, #{title}, $#{subject})
+		INSERT INTO BOARD(NO, WRITER, WDATE, TITLE, SUBJECT)
+		VALUES(#{no}, #{writer}, #{wdate}, #{title}, #{subject})
 	</insert>
 	
 	<update id="boardUpdate" parameterType="co.won.prj.board.service.BoardVO">

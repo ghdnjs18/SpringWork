@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.won.prj.board.command.BoardInsert;
+import co.won.prj.board.command.BoardInsertForm;
+import co.won.prj.board.command.BoardSelect;
 import co.won.prj.board.command.BoardSelectList;
 import co.won.prj.comm.Command;
 import co.won.prj.home.command.HomeCommand;
@@ -33,6 +36,9 @@ public class FrontController extends HttpServlet {
 		map.put("/memberSelectList.do", new MemberSelectList()); // 회원전체 조회
 		map.put("/memberSelect.do", new MemberSelect()); // 한명 조회
 		map.put("/boardSelectList.do", new BoardSelectList()); // 게시글 목록
+		map.put("/boardSelect.do", new BoardSelect()); // 게시글 상세보기
+		map.put("/boardInsertForm.do", new BoardInsertForm()); // 게시글 상세보기
+		map.put("/boardInsert.do", new BoardInsert()); // 게시글 저장
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
